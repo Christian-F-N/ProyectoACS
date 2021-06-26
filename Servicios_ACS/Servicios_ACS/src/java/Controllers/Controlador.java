@@ -3,17 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Principal;
+package Controllers;
 
 /**
  *
- * @author Mauricio
+ * @author HP
  */
-public class Principal {
-
-    public static void main(String[] args) {
-        Login_tem e = new Login_tem();
-        e.setVisible(true);
-
-    }
+public interface Controlador {
+    public String login(String cedula, String contrase);
 }
