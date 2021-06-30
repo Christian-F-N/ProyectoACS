@@ -1,6 +1,7 @@
 package FuncionesCRUD;
 
 import Acceso_BD.ConeccionMYSQL;
+import Acceso_BD.Consultas;
 import Interfaces.Rol;
 import Objetos.Usuario;
 import java.sql.Connection;
@@ -134,7 +135,7 @@ public class UsuarioCRUD {
                 user.setCorreo(rs.getString("COR_USU"));
                 user.setDireccion(rs.getString("DIR_USU"));
                 user.setContraseña(rs.getString("PAS_USU"));
-                user.setRol(Rol)(rs.getString("ID_ROL_PER"));
+               
             }
             return Usuarios;
         } catch (SQLException ex) {

@@ -12,8 +12,8 @@ package Principal;
 public class Principal {
 
     public static void main(String[] args) {
-        Login_tem e = new Login_tem();
-        e.setVisible(true);
-
+    //    Login_tem e = new Login_tem();
+  //      e.setVisible(true);
+//
     }
 }

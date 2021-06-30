@@ -19,10 +19,7 @@
     <target name="wsimport-client-WebServices" depends="wsimport-init">
         <mkdir dir="${build.generated.dir}/jax-wsCache/WebServices"/>
         <property name="wsdl-WebServices" location="xml-resources/web-service-references/WebServices/wsdl/localhost_8081/Servicios_ACS/WebServices.wsdl"/>
-        <wsimport sourcedestdir="${build.generated.dir}/jax-wsCache/WebServices" destdir="${build.generated.dir}/jax-wsCache/WebServices" wsdl="${wsdl-WebServices}" catalog="catalog.xml" encoding="${source.encoding}" extension="true" verbose="true" fork="false" wsdlLocation="http://localhost:8081/Servicios_ACS/WebServices?wsdl" xnocompile="true" xendorsed="true" package="WSer">
-            <depends file="${wsdl-WebServices}"/>
-            <produces dir="${build.generated.dir}/jax-wsCache/WebServices"/>
-        </wsimport>
+       
         <copy todir="${build.generated.sources.dir}/jax-ws">
             <fileset dir="${build.generated.dir}/jax-wsCache/WebServices">
                 <include name="**/*.java"/>

@@ -5,6 +5,8 @@
  */
 package Interfaces;
 
+import Acceso_BD.Modificar;
+
 /**
  *
  * @author HP
@@ -47,8 +49,18 @@ public class Rol extends javax.swing.JFrame {
         });
 
         upRol.setText("Modificar");
+        upRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                upRolActionPerformed(evt);
+            }
+        });
 
         delRol.setText("Eliminar");
+        delRol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                delRolActionPerformed(evt);
+            }
+        });
 
         lisRol.setText("Listar");
 
@@ -97,6 +109,18 @@ public class Rol extends javax.swing.JFrame {
         rol.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_addRolActionPerformed
+
+    private void delRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delRolActionPerformed
+        DelRol eliminar = new DelRol();
+        eliminar.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_delRolActionPerformed
+
+    private void upRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_upRolActionPerformed
+       ModificarRol update =new ModificarRol();
+       update.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_upRolActionPerformed
 
     /**
      * @param args the command line arguments
