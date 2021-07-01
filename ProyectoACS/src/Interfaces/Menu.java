@@ -30,16 +30,16 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         rol = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
-        jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
-        jButton9 = new javax.swing.JButton();
+        asiento = new javax.swing.JButton();
+        coop = new javax.swing.JButton();
+        reserva = new javax.swing.JButton();
+        ciudad = new javax.swing.JButton();
+        ruta = new javax.swing.JButton();
+        bus = new javax.swing.JButton();
+        cliente = new javax.swing.JButton();
+        usuario = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("MENU");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
         jLabel1.setText("Menu");
@@ -51,21 +51,21 @@ public class Menu extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("jButton2");
+        asiento.setText("Asiento");
 
-        jButton3.setText("jButton3");
+        coop.setText("Cooperativa");
 
-        jButton4.setText("jButton4");
+        reserva.setText("Reserva");
 
-        jButton5.setText("jButton5");
+        ciudad.setText("Ciudad");
 
-        jButton6.setText("jButton6");
+        ruta.setText("Ruta");
 
-        jButton7.setText("jButton7");
+        bus.setText("Bus");
 
-        jButton8.setText("jButton8");
+        cliente.setText("Cliente");
 
-        jButton9.setText("jButton9");
+        usuario.setText("Usiario");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -74,8 +74,8 @@ public class Menu extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(asiento, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(coop, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(rol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -84,14 +84,14 @@ public class Menu extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton4)
-                            .addComponent(jButton6)
-                            .addComponent(jButton5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 63, Short.MAX_VALUE)
+                            .addComponent(reserva)
+                            .addComponent(ruta)
+                            .addComponent(ciudad))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton9)
-                            .addComponent(jButton8)
-                            .addComponent(jButton7))
+                            .addComponent(usuario)
+                            .addComponent(cliente)
+                            .addComponent(bus))
                         .addGap(45, 45, 45))))
         );
         layout.setVerticalGroup(
@@ -102,26 +102,26 @@ public class Menu extends javax.swing.JFrame {
                 .addGap(40, 40, 40)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(rol)
-                    .addComponent(jButton4)
-                    .addComponent(jButton7))
+                    .addComponent(reserva)
+                    .addComponent(bus))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton5)
-                    .addComponent(jButton8))
+                    .addComponent(asiento)
+                    .addComponent(ciudad)
+                    .addComponent(cliente))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton6)
-                    .addComponent(jButton9))
-                .addContainerGap(79, Short.MAX_VALUE))
+                    .addComponent(coop)
+                    .addComponent(ruta)
+                    .addComponent(usuario))
+                .addContainerGap(77, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void rolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rolActionPerformed
-        Rol rol1= new Rol();
+        Roles rol1= new Roles();
        rol1.setVisible(true);
        this.dispose();
     }//GEN-LAST:event_rolActionPerformed
@@ -162,15 +162,15 @@ public class Menu extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
+    private javax.swing.JButton asiento;
+    private javax.swing.JButton bus;
+    private javax.swing.JButton ciudad;
+    private javax.swing.JButton cliente;
+    private javax.swing.JButton coop;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton reserva;
     private javax.swing.JButton rol;
+    private javax.swing.JButton ruta;
+    private javax.swing.JButton usuario;
     // End of variables declaration//GEN-END:variables
 }

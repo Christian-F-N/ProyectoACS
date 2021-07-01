@@ -2,7 +2,7 @@ package FuncionesCRUD;
 
 import Acceso_BD.ConeccionMYSQL;
 import Acceso_BD.Consultas;
-import Interfaces.Rol;
+
 import Objetos.Usuario;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

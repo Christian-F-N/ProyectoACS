@@ -218,7 +218,29 @@ public class Consultas {
         }
         return clis;
     }
-
+ public Cliente consultarElCliente(int id) {
+        
+        String consulta = "Select * from cliente where ID_CLI="+id;
+        Cliente cli=null;
+        try {
+            st = cn.createStatement();
+            datos = st.executeQuery(consulta);
+            while (datos.next()) {
+                cli = new Cliente();
+                cli.setId(datos.getInt(1));
+                cli.setCedula(datos.getString(2));
+                cli.setNombre(datos.getString(3));
+                cli.setApellido(datos.getString(4));
+                cli.setTelefono(datos.getString(5));
+                cli.setCorreo(datos.getString(6));
+                cli.setDireccion(datos.getString(7));
+                cli.setContraseña(datos.getString(8));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConeccionMYSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cli;
+    }
     public ArrayList<Reserva> consultarReservas() {
         ArrayList<Reserva> ress = new ArrayList();
         String consulta = "Select * from reserva";
@@ -430,6 +452,29 @@ public class Consultas {
             Logger.getLogger(ConeccionMYSQL.class.getName()).log(Level.SEVERE, null, ex);
         }
         return clis;
+    }
+
+    public Cliente consultarClientee(int id) {
+        String consulta = "Select * from cliente where ID_CLI=" + id;
+        Cliente cli = null;
+        try {
+            st = cn.createStatement();
+            datos = st.executeQuery(consulta);
+            while (datos.next()) {
+                cli = new Cliente();
+                cli.setId(datos.getInt(1));
+                cli.setCedula(datos.getString(2));
+                cli.setNombre(datos.getString(3));
+                cli.setApellido(datos.getString(4));
+                cli.setTelefono(datos.getString(5));
+                cli.setCorreo(datos.getString(6));
+                cli.setDireccion(datos.getString(7));
+                cli.setContraseña(datos.getString(8));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(ConeccionMYSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return cli;
     }
 
     public ArrayList<Reserva> consultarReserva(String condicion) {
@@ -837,4 +882,21 @@ public class Consultas {
         }
         return "NO CONECTADO";
     }
+    /*
+        public Cliente loginCliente(int USUARIO, String CONTRASENIA) {
+        String consulta = "Select * from cliente where ID_CLI='"+USUARIO+"'";
+        int id = 0;
+        try {
+            st = cn.createStatement();
+            dato = st.executeQuery(consulta);
+            if (!dato.next()) {
+                return 0;
+            }
+            id = dato.getInt(1);
+        } catch (SQLException ex) {
+            Logger.getLogger(ConeccionMYSQL.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+     */
 }

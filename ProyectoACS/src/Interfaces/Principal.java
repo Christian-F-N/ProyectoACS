@@ -34,11 +34,17 @@ public class Principal extends javax.swing.JFrame {
         rutas = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("INICIO");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel1.setText("Bienvenido...");
 
         registrar.setText("Registrarse");
+        registrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registrarActionPerformed(evt);
+            }
+        });
 
         iniciar.setText("Iniciar Sesion");
         iniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -48,6 +54,11 @@ public class Principal extends javax.swing.JFrame {
         });
 
         rutas.setText("Ver rutas");
+        rutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rutasActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -91,6 +102,18 @@ public class Principal extends javax.swing.JFrame {
         login1.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_iniciarActionPerformed
+
+    private void registrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registrarActionPerformed
+       ClienteReg cliente1=new ClienteReg();
+       cliente1.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_registrarActionPerformed
+
+    private void rutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rutasActionPerformed
+       ConsultaRutas ruta=new ConsultaRutas();
+       ruta.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_rutasActionPerformed
 
     /**
      * @param args the command line arguments

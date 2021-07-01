@@ -6,8 +6,9 @@
 package Interfaces;
 
 import Acceso_BD.Consultas;
+import Objetos.Usuario;
+import Objetos.Cliente;
 import javax.swing.JOptionPane;
-
 
 /**
  *
@@ -21,6 +22,7 @@ public class Login extends javax.swing.JFrame {
     public Login() {
         initComponents();
         setLocationRelativeTo(null);
+        
     }
 
     /**
@@ -38,8 +40,10 @@ public class Login extends javax.swing.JFrame {
         pass = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        salir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("lOGIN");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel1.setText("Inicio de sesion");
@@ -55,6 +59,13 @@ public class Login extends javax.swing.JFrame {
 
         jLabel3.setText("Contraseña:");
 
+        salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -62,27 +73,33 @@ public class Login extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(122, 122, 122)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel3)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(pass, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jLabel2)
+                                        .addGap(86, 86, 86)
+                                        .addComponent(usu, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
                                 .addGap(86, 86, 86)
-                                .addComponent(usu, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(86, 86, 86)
-                        .addComponent(jLabel1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(185, 185, 185)
-                        .addComponent(ingresar)))
-                .addContainerGap(97, Short.MAX_VALUE))
+                                .addComponent(jLabel1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(185, 185, 185)
+                                .addComponent(ingresar)))
+                        .addGap(0, 87, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(salir)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel1)
                 .addGap(51, 51, 51)
@@ -95,7 +112,9 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jLabel3))
                 .addGap(48, 48, 48)
                 .addComponent(ingresar)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(salir)
+                .addContainerGap())
         );
 
         pack();
@@ -106,16 +125,30 @@ public class Login extends javax.swing.JFrame {
       int user=Integer.parseInt(this.usu.getText());
       String pass= this.pass.getText();
       String acceso= log.login(user, pass);
-      if (acceso=="Bienvenido"){
-         Menu menu1= new Menu();
-         menu1.setVisible(true);
-         this.dispose();
-         JOptionPane.showMessageDialog(null, "Bienvenido ");
-      }else{
-      JOptionPane.showMessageDialog(null, "Datos incorrectos");    
-      }
+      Cliente clientes= log.consultarCliente(user);
+      Usuario usuario=log.consultarUsuario(user);
+      try{
       
+      if (usuario.getContraseña().equals(pass)){
+         Menu menu1= new Menu();
+                menu1.setVisible(true);
+                this.dispose();
+            } else if (clientes.getContraseña().equals(pass)) {
+                MenuCiente menu2 = new MenuCiente();
+                menu2.setVisible(true);
+                this.dispose();
+            }
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(null, "Datos incorrectos");
+        
+        }
     }//GEN-LAST:event_ingresarActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        Principal p1 = new Principal();
+        p1.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_salirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -152,12 +185,14 @@ public class Login extends javax.swing.JFrame {
         });
     }
 
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton ingresar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField pass;
+    private javax.swing.JButton salir;
     private javax.swing.JTextField usu;
     // End of variables declaration//GEN-END:variables
 }

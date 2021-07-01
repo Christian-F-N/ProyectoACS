@@ -11,6 +11,7 @@ import Acceso_BD.Consultas;
 import Acceso_BD.Inserciones;
 import Acceso_BD.Modificar;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -27,6 +28,7 @@ public class Roles extends javax.swing.JFrame {
         this.eliminar.setEnabled(false);
         this.modificar.setEnabled(false);
         this.id.setEditable(false);
+        setLocationRelativeTo(null);
         llenar();
 
     }
@@ -53,6 +55,7 @@ public class Roles extends javax.swing.JFrame {
         id = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("ROLES");
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel1.setText("Roles");
@@ -105,6 +108,11 @@ public class Roles extends javax.swing.JFrame {
         });
 
         salir.setText("Salir");
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
 
         jLabel2.setText("ID de Rol:");
 
@@ -174,7 +182,7 @@ public class Roles extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void agregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_agregarActionPerformed
-        if (this.id.getText().equals(null)) {
+        if (this.des.getText().equals(null)) {
             this.id.setEditable(false);
             Inserciones insert = new Inserciones();
             Rol roles1 = new Rol();
@@ -183,6 +191,7 @@ public class Roles extends javax.swing.JFrame {
         } else {
             this.id.setText("");
             this.des.setText("");
+            JOptionPane.showMessageDialog(null, "Inserte una descripcion");
         }
         llenar();
 
@@ -219,6 +228,12 @@ public class Roles extends javax.swing.JFrame {
         this.des.setText(a.getDescripcion());
         this.id.setEditable(false);
     }//GEN-LAST:event_tablaMouseClicked
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        Menu menus=new Menu();
+        menus.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_salirActionPerformed
 
     /**
      * @param args the command line arguments
